@@ -24,7 +24,7 @@ class ArrayADT
         int getItem(int index) ;
         ~ArrayADT()
         {
-            delete(ptr) ;
+            delete []ptr ;
         } 
 };
 // append function

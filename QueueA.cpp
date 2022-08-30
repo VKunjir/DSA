@@ -45,24 +45,25 @@ bool QueueA :: isEmpty()
 }
 void QueueA :: push(int data)
 {
-    if(isFull())
+    if(ptr)
     {
-        cout << "\nQueue overflow " ;
-    }
-    else
-    {
-        if(isEmpty())
+        if(isFull())
         {
-            front = rear = 0;
-            ptr[front] = data ;
+            cout << "\nQueue overflow " ;
         }
         else
         {
-            if(rear == capacity -1)
+            if(isEmpty())
+            {
+                front = rear = 0;
+                ptr[front] = data ;
+            }
+            else if(rear == capacity -1)
             {
                 rear = 0;
                 ptr[rear] = data ;
             }
+                
             else
             {
                 rear++ ;
@@ -70,29 +71,23 @@ void QueueA :: push(int data)
             }
         }
     }
+    else
+        cout << "\nNo queue is created " ;
 }
 void QueueA :: pop()
 {
     if(isEmpty())
         cout << "\nEmpty list " ;
+    else if(rear == front)
+            {
+                rear=front=-1 ;
+            }
+    else if(front == capacity-1)
+            front = 0 ;
     else
-    {
-        if(rear == front)
-        {
-            rear=front=-1 ;
-        }
-        else
-        {
-            if(front == capacity-1)
-            {
-                front = 0 ;
-            }
-            else
-            {
-                front++ ;
-            }
-        }
-    }
+            front++ ;
+            
+    
 }
 int QueueA :: Front()
 {

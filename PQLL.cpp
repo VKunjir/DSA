@@ -51,8 +51,7 @@ void PQLL :: pop()
 {
     if(start)
     {
-        node *t ;
-        t = start;
+        node *t = start;
         start = t->next ;
         delete t ;
     }
